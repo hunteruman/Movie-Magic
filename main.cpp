@@ -36,5 +36,10 @@ int main() {
     return 0;
 }
 
+int test(int x)
+{
+    return x;
+}
+
 
 
