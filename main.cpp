@@ -32,8 +32,6 @@ int main() {
     }
     file.close();
 
-    cout << "Hit rate = " << float(hits)/float(count) << endl;
-
     return 0;
 }
 
