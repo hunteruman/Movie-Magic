@@ -1,17 +1,20 @@
-//
-// Created by Hunter Uman on 12/8/21.
-//
-
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <sstream>
+#include "Database.h"
 
 using namespace std;
 
 int main() {
 
-    // temp main just so I can get used to clones, commits, pulls, et cetera
+    /* this is test code for the inputs / how you should define the class :)
+
+    Database myDatabase;
+    //myDatabase.addEdge("movie","person","role");
+
+    */
+
     // okay this time the comment should be on my branch
     string fileName;
     cout << "Choose an input file to load: " << endl;
