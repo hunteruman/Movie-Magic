@@ -30,7 +30,7 @@ int main() {
     myDatabase.addEdge("movie2", "person2", "role");
     myDatabase.addEdge("movie2", "person1", "role");
 
-    vector<string> movies = myDatabase.listCompare("person1","person2");
+    vector<string> movies = myDatabase.unsortedListCompare("person1","person2");
 
     for (int i = 0; i < movies.size(); i++)
         cout << movies[i] << endl;
