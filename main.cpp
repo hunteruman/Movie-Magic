@@ -24,7 +24,7 @@ vector<string> stringToList(string input)
 
 int main() {
 
-   Database movieDatabase;
+    Database movieDatabase;
     //  Create ifsream object for file
     ifstream fin("IMDB Movies.csv");
     if (fin.good())
@@ -82,11 +82,11 @@ int main() {
             string year                 = intermediate_data[3];
             string combined             = title + " [" + year + "]";
             for (auto &a : actors)
-                movieDatabase.addEgde(combined, a, "Actor");
+                movieDatabase.addEdge(combined, a, "Actor");
             for (auto &d : directors)
-                movieDatabase.addEgde(combined, d, "Director");
+                movieDatabase.addEdge(combined, d, "Director");
             for (auto &w : writers)
-                movieDatabase.addEgde(combined, w, "Writer");
+                movieDatabase.addEdge(combined, w, "Writer");
         }
     }
     fin.close();
