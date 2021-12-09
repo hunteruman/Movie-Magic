@@ -24,6 +24,19 @@ vector<string> stringToList(string input)
 
 int main() {
 
+    /* test code for algorithms
+    Database myDatabase;
+    myDatabase.addEdge("movie", "person1", "role");
+    myDatabase.addEdge("movie2", "person2", "role");
+    myDatabase.addEdge("movie2", "person1", "role");
+
+    vector<string> movies = myDatabase.listCompare("person1","person2");
+
+    for (int i = 0; i < movies.size(); i++)
+        cout << movies[i] << endl;
+
+    */
+
     Database movieDatabase;
     //  Create ifsream object for file
     ifstream fin("IMDB Movies.csv");
@@ -90,6 +103,7 @@ int main() {
         }
     }
     fin.close();
+
     return 0;
 }
 

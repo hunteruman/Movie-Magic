@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <utility>
+#include <algorithm>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ public:
 
     // Adjacency List implementation functions
     void addEdge(string movie, string person, string role);
-    vector<string> bfs(string person1, string person2); //
+    vector<string> dfs(string person1, string person2); //
     vector<string> listCompare(string person1, string person2);
 
 };
