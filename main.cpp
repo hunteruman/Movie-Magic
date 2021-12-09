@@ -8,14 +8,21 @@ using namespace std;
 
 int main() {
 
-    /* this is test code for the inputs / how you should define the class :)
+    /* this is test code for the inputs/outputs / how you should use the class :)
 
     Database myDatabase;
-    //myDatabase.addEdge("movie","person","role");
+    myDatabase.addEdge("movie","person1","role");
+    myDatabase.addEdge("movie","person2","role");
+    myDatabase.addEdge("movie2","person1","role");
+
+    vector<string> print = myDatabase.bfs("person1", "person2");
+    for (int i = 0; i < print.size(); i++)
+    {
+        cout << print[i] << endl;
+    }
 
     */
 
-    // okay this time the comment should be on my branch
     string fileName;
     cout << "Choose an input file to load: " << endl;
     cin >> fileName;
