@@ -14,11 +14,16 @@ class Database {
     unordered_map<string, vector<pair<string, string>>> Movies;
     unordered_map<string, vector<pair<string, string>>> People;
 
+    // Alt Adjacency List implementation of Map
+
 public:
 
-    // Adjacency List implementation functions
+    // map creation
     void addEdge(string movie, string person, string role);
-    vector<string> dfs(string person1, string person2); //
-    vector<string> listCompare(string person1, string person2);
+
+    // search algorithms
+    vector<string> dfs(string person1, string person2);
+    vector<string> sortedListCompare(string person1, string person2);
+    vector<string> unsortedListCompare(string person1, string person2);
 
 };

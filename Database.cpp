@@ -41,7 +41,7 @@ vector<string> Database::dfs(string person1, string person2) {
     return out;
 }
 
-vector<string> Database::listCompare(string person1, string person2) {
+vector<string> Database::sortedListCompare(string person1, string person2) {
     vector<string> out;
 
     vector<string> p1; // person1's movies
@@ -75,6 +75,24 @@ vector<string> Database::listCompare(string person1, string person2) {
         {
             j++;
         }
+    }
+
+    return out;
+}
+
+vector<string> Database::unsortedListCompare(string person1, string person2) {
+    vector<string> out;
+
+    unordered_map<string,string> p1; // person1's movies
+
+    for (int i = 0; i < People[person1].size(); i++)
+    {
+        p1[People[person1][i].first] = "found";
+    }
+    for (int i = 0; i < People[person2].size(); i++)
+    {
+        if (p1[People[person2][i].first] == "found")
+            out.push_back(People[person2][i].first);
     }
 
     return out;
