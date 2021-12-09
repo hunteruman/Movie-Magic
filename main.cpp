@@ -24,19 +24,6 @@ vector<string> stringToList(string input)
 
 int main() {
 
-    /* test code for algorithms
-    Database myDatabase;
-    myDatabase.addEdge("movie", "person1", "role");
-    myDatabase.addEdge("movie2", "person2", "role");
-    myDatabase.addEdge("movie2", "person1", "role");
-
-    vector<string> movies = myDatabase.unsortedListCompare("person1","person2");
-
-    for (int i = 0; i < movies.size(); i++)
-        cout << movies[i] << endl;
-
-    */
-
     Database movieDatabase;
     //  Create ifsream object for file
     ifstream fin("IMDB Movies.csv");
@@ -76,10 +63,7 @@ int main() {
                         while (token.at(token.length()-2) != '\"');
                         temp = temp.substr(1, temp.length()-3);
                     }
-                    catch (const std::out_of_range& e)
-                    {
-                        cout << line << endl;
-                    }
+                    catch (const std::out_of_range& e){}
                 }
                 intermediate_data.push_back(temp);
                 //  Actors is the 13th attribute in the dataset so we can break the loop once we have the actors
@@ -103,6 +87,49 @@ int main() {
         }
     }
     fin.close();
+
+    string          person1, person2;
+    int             algoSelection;
+    vector<string>  movies;
+
+    cout << "Move Magic: The movie search engine. By Hunter Uman and Michael Shapiro" << endl << endl;
+    while (true)
+    {
+        cout << "Select search algorithm or exit program: " << endl;
+        cout << "1. Depth-first search" << endl;
+        cout << "2. Sorted list comparison" << endl;
+        cout << "3. Unsorted list comparison" << endl;
+        cout << "0. Exit program" << endl;
+        cin >> algoSelection;
+        if (algoSelection == 0)
+            exit(0);
+        else if (algoSelection < 0 || algoSelection > 3)
+        {
+            cout << "Input " << algoSelection << " is not a valid selection. Try again" << endl;
+            continue;
+        }
+        cout << "Input first person to search: ";
+        cin.ignore();
+        getline(cin, person1);
+        cout << "Input second person to search: ";
+        getline(cin, person2);
+        switch(algoSelection)
+        {
+            case 1:
+                movies = movieDatabase.dfs(person1, person2);
+                break;
+            case 2:
+                movies = movieDatabase.sortedListCompare(person1, person2);
+                break;
+            case 3:
+                movies = movieDatabase.unsortedListCompare(person1, person2);
+                break;
+        }
+        cout << person1 << " and " << person2 << " have worked on " << movies.size() << " movies together: " << endl;
+        for (string &movie : movies)
+            cout << movie << endl;
+        cout << endl;
+    }
 
     return 0;
 }
